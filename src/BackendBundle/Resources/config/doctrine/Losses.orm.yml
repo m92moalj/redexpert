@@ -1,0 +1,23 @@
+BackendBundle\Entity\Losses:
+    type: entity
+    table: Losses
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        losses:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        calculatedAt:
+            type: datetime
+            nullable: false
+            column: calculated_at
+    lifecycleCallbacks: {  }

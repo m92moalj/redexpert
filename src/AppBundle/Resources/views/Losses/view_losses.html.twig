@@ -1,0 +1,98 @@
+{% extends "AppBundle:Layout:layout.html.twig" %}
+
+
+{% block styles %}
+	{{parent()}}
+	<link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" media="screen">
+
+	{# <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen"> #}
+{% endblock %}
+
+{% block content %}
+
+<div class="divide60"></div>
+<div class="container">
+
+	<nav class="breadcrumb">
+		<a class="breadcrumb-item" href="{{path('app_homepage')}}">Inicio</a> / Visualización de pérdidas
+	</nav>
+
+	<center>
+		<h3>Visualización de las pérdidas calculadas para cada uno de los componentes</h3><hr>
+	</center>
+
+	<div class="col-sm-4" style="padding: 10px;">
+		<form id="view_losses_for_component" action="{{path('get_losses')}}" method="post" enctype="multipart/form-data">
+			<label for="powerInductors">Power Inductors disponibles:</label>
+				<select class="form-control" id="powerInductors" name="idPI">
+
+					{% if pi_selected is defined %}
+						<option value="{{pi_selected.getId()}}">
+							Order Code: {{pi_selected.getOrderCode()}} 
+						</option>
+					{% endif %}
+
+					{% for powerInductor in powerInductors %}
+						{% if pi_selected is defined %}
+							{% if powerInductor.getId() == pi_selected.getId() %}
+							{% else %}
+							    <option value="{{powerInductor.getId()}}">
+							    	Order Code: {{powerInductor.getOrderCode()}}
+							    </option>
+							{% endif %}
+						{% else %}
+							<option value="{{powerInductor.getId()}}">
+						    	Order Code: {{powerInductor.getOrderCode()}}
+						    </option>
+					    {% endif %}
+					{% endfor %}				
+				</select>
+			<br>
+			<button type="submit" class="btn btn-primary" id="btn-obtener">Obtener</button>
+			<br>
+		</form>
+	</div>	
+	<div class="col-sm-6 col-sm-offset-1" style="padding: 10px;">
+		{% if losses is defined %}
+			<h3>Pérdidas calculadas:</h3><hr>
+			<table class="table table-striped table-bordered" id="tableLosses">
+				<thead>
+					<tr>
+						<th>Pérdidas</th>
+						<th>Voltaje del inductor</th>
+						<th>Fecha del cálculo</th>
+						{# <th>Tipo de onda</th> #}
+					</tr>
+				</thead>
+				<tbody>
+					{% for loss in losses %}
+					<tr>
+					    <td>{{loss.getLosses().getLosses()}}</td>
+					    <td>{{loss.getVoltageInductor}}</td>
+						<td>{{loss.getLosses().getCalculatedAt()|date('d-m-Y H:i:s')}}</td>
+						{# <td>{{loss.}}</td> #}
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		{% endif %}
+	</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+    {{parent()}}
+	<script type="text/javascript" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+	    $(document).ready(function() {
+		    $('#tableLosses').DataTable({
+		    	"language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+            }
+		    });
+		} );
+    </script>
+
+{% endblock %}

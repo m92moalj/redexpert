@@ -1,0 +1,48 @@
+BackendBundle\Entity\PowerinductorLosses:
+    type: entity
+    table: PowerInductor_Losses
+    indexes:
+        fk_PowerInductor_Losses_1_idx:
+            columns:
+                - power_inductor
+        fk_PowerInductor_Losses_2_idx:
+            columns:
+                - losses
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        voltageInductor:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            column: voltage_inductor
+    manyToOne:
+        powerInductor:
+            targetEntity: Powerinductor
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                power_inductor:
+                    referencedColumnName: ID
+            orphanRemoval: false
+        losses:
+            targetEntity: Losses
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                losses:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

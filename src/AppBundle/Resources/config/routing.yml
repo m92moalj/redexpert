@@ -1,0 +1,25 @@
+app_homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Default:index }
+
+app_losses:
+    path:     /losses/
+    defaults: { _controller: AppBundle:Losses:indexCalculation }
+
+calculation:
+    path:     /losses/get
+    defaults: { _controller: AppBundle:Losses:calculation }
+    methods: [POST]    
+
+app_me:
+    path:     /me/
+    defaults: { _controller: AppBundle:User:me }  
+
+app_view:
+    path:     /view/losses/
+    defaults: { _controller: AppBundle:Losses:view }  
+
+get_losses:
+    path:     /view/losses/get
+    defaults: { _controller: AppBundle:Losses:getLosses }
+    methods: [POST]

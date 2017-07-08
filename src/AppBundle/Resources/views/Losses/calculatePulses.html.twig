@@ -1,0 +1,87 @@
+{% extends "AppBundle:Layout:layout.html.twig" %}
+
+{% block content %}
+
+<div class="divide60"></div>
+<div class="container">
+
+	<nav class="breadcrumb">
+		<a class="breadcrumb-item" href="{{path('app_homepage')}}">Inicio</a> / Cálculo de pérdidas
+	</nav>
+
+	<h3>Rellene el formulario para el cáculo</h3><hr>
+	<div class="row">
+		<form action="{{path('calculation')}}" method="post">
+			<div class="col-md-4 col-sm-12">
+				<label for="powerInductors">Power Inductor:</label>
+				<select class="form-control" id="powerInductors" name="idPI">
+					{% for powerInductor in powerInductors %}
+						<option value="{{powerInductor.getId()}}">
+					    	Order Code: {{powerInductor.getOrderCode()}}
+					    </option>
+					{% endfor %}				
+				</select>
+	    	</div>
+	    	<div class="col-md-4 col-sm-12">
+				<label for="form-vind">Voltage Inductor (V):</label>
+				<input type="number" class="form-vind form-control" min="1" name="form-vind" onchange="validate(this, 'number');">
+	    	</div>
+	    	<div class="col-md-4 col-sm-12">
+				<label for="form-fc">Frequency Carrier (Normaliced):</label>
+				<input type="number" class="form-fc form-control" min="1" name="form-fc" onchange="validate(this, 'number');">
+	    	</div>
+	    	<div class="col-md-4 col-sm-12">
+				<label for="form-fr">Frequency Reference (Normaliced):</label>
+				<input type="number" class="form-fr form-control" min="1" name="form-fr" onchange="validate(this, 'number');">
+	    	</div>
+	    	<div class="col-md-4 col-sm-12">
+				<label for="form-wavestype">Wave's type:</label>
+				<select class="form-wavestype form-control" id="form-wavestype" name="form-wavestype">
+					<option value="1">
+				    	Triangle
+				    </option>
+					<option value="2">
+				    	Triangle Pulsatory	
+				    </option>
+				</select>
+	    	</div>
+	    	<div class="col-md-12 col-sm-12" style="margin-top: 10px;">
+	    		<button type="submit" class="btn btn-primary"> Calcular </button>
+	    	</div>
+		</form>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{parent()}}
+<script TYPE="text/JavaScript">
+    function validate(inputField, type) {
+    	var isValid = "";
+
+    	switch(type){
+    		case 'number':
+    			isValid = /(?:\d*\.)?\d+$/.test(inputField.value);
+    			break;
+    		case 'email':
+    			isValid = /[a-z1-9]+[_a-z1-9\.-]*[a-z1-9]+@[a-z1-9-]+(\.[a-z1-9-]+)*(\.[a-z]{2,4})$/.test(inputField.value);
+    			break;
+    		case 'text':
+    			break;
+    	}
+        if (isValid) {
+            inputField.style.backgroundColor = '#bfa';
+        } else {
+            inputField.style.backgroundColor = '#fba';
+        }
+
+        return isValid;
+    }
+</script>
+{% if status != "" %}
+	<script type="text/javascript">
+		sweetAlert("{{status}}", "{{message}}", "", false);
+	</script>
+{% endif %}
+{% endblock %}

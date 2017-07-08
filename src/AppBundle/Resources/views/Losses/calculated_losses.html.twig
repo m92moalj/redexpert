@@ -1,0 +1,47 @@
+{% extends "AppBundle:Layout:layout.html.twig" %}
+
+{% block content %}
+
+<div class="divide60"></div>
+<div class="container">
+
+	<nav class="breadcrumb">
+		<a class="breadcrumb-item" href="{{path('app_homepage')}}">Inicio</a> / 
+		<a class="breadcrumb-item" href="{{path('app_losses')}}">Cálculo de pérdidas</a> / Pérdidas calculadas
+	</nav>
+
+	<center>
+		<h3>Pérdidas calculadas para el RF-Inductor {{inductor.getOrderCode()}}</h3><hr>
+	</center>
+
+	<div class="col-sm-8 col-sm-offset-2" style="padding: 10px;">
+		<p>Para una frecuencia <strong>{{data.fc}}</strong> de la onda carrier y otra frecuencia <strong>{{data.fr}}</strong> de la onda reference, para una señal <strong>{{data.wave}}</strong> se obtienen los siguientes resultados: </p>
+		<div class="row">
+			<div class="col-md-6">
+				<p>- <strong>{{data.numPulses}}</strong> pulsos:</p>
+				<ol>
+					{% for item in data.pulseWidth %}
+					    <li>
+					    	{{item}}
+					    </li>
+					{% endfor %}
+				</ol>
+			</div>
+			<div class="col-md-6">
+				<p>- <strong>{{data.numPulses}}</strong> pérdidas:</p>
+				<ol>
+					{% for item in data.pulseLoss %}
+					    <li>
+					    	{{item}}
+					    </li>
+					{% endfor %}
+				</ol>	
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block scripts %}
+    {{parent()}}
+{% endblock %}

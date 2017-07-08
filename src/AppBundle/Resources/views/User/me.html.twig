@@ -1,0 +1,143 @@
+{% extends "AppBundle:Layout:layout.html.twig" %}
+
+{% block content %}
+<style type="text/css">
+	.image-cropper {
+	    width: 300px;
+	    height: 300px;
+	    position: relative;
+	    overflow: hidden;
+	    border-radius: 50%;
+	}
+
+	img {
+	    display: inline;
+	    margin: 0 auto;
+	    height: 100%;
+	    width: auto;
+	}
+</style>
+<div class="divide60"></div>
+<div class="container">
+
+	<nav class="breadcrumb">
+		<a class="breadcrumb-item" href="{{path('app_homepage')}}">Inicio</a> / Sobre Nosotros
+	</nav>
+
+	<h3>Proyectista: <strong>Jorge Molina Alba</strong></h3><hr>
+	<div class="row">
+	    <div class="col-md-6 col-md-offset-3 margin20">
+	        <div class="team-wrap">
+	        <br>	
+	        <center>
+	        	<div class="image-cropper">
+	            	<img src="{{asset('assets/img/me.jpg')}}" class="rounded" alt="">
+	            </div>
+	        </center>
+	            <h4>Jorge Molina Alba</h4><hr>
+	            <center>
+	            	<strong>Estudiante de la Universidad de Córdoba</strong><br>
+	            	<strong>Full-Stack Developer en Eurotransportcar</strong><br>
+	            	<strong>Junior Programmer en Würth Elektronik eiSos Gmbh & CO. KG</strong>
+	            </center>
+	            <hr>
+	            <p align="justify" style="padding: 10px;">
+	                Comencé realizando este proyecto gracias a la oportunidad brindada por la Universidad de realizar un proyecto conjuntamente con una empresa. Gracias a ello he podido desarrollar más mis habilidades profesionales otorgándome las cualidades de poder pertenecer a un equipo de desarrollo con mayores conocimientos previos.
+	            </p>
+	            <ul class="list-inline">
+	                <li>
+	                    <a href="https://www.facebook.com/jorge.molinaalba.9" target="_blank" class="social-icon-sm si-border si-facebook">
+	                        <i class="fa fa-facebook"></i>
+	                        <i class="fa fa-facebook"></i>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="https://www.linkedin.com/in/jorge-molina-alba/" target="_blank" class="social-icon-sm si-border si-linkedin">
+	                        <i class="fa fa-linkedin"></i>
+	                        <i class="fa fa-linkedin"></i>
+	                    </a>
+	                </li>
+	            </ul><!--social-->
+	        </div><!--team-wrap-->
+	    </div><!--team col-->
+	</div>
+	    <br>
+	    <div class="row" style="margin-top: 20px;">
+		<div class="col-md-12 margin20">
+			<h3>Directores: <strong>Prof. Dr. Cristóbal Romero </strong> y <strong>Prof. Dr. Alberto Cano Rojas</strong></h3><hr>
+		</div>
+	    <div class="col-md-6 margin20">
+	        <div class="team-wrap">
+	        <br>	
+	        <center>
+	        	<div class="image-cropper">
+	            	<img src="{{asset('assets/img/cristobal_profile.jpg')}}" class="rounded" alt="">
+	            </div>
+	        </center>
+	            <h4>Cristóbal Romero Morales</h4><hr>
+	            <center>
+	            	<strong>Catedrático de Ciencias de la Computación y Análisis Numérico de la Universidad de Córdoba</strong>
+	            </center>
+	            <hr>
+	            <p align="justify" style="padding: 10px;">	                
+					Cristobal Romero es (asociado) Catedrático de Ciencias de la Computación y Análisis Numérico de la Universidad de Córdoba. Su enseñanza se dedica a la programación de computadoras, inteligencia artificial, interfaces de computadora humana en la ingeniería informática. Su trabajo de investigación se desarrolla como miembro del grupo de investigación "Descubrimiento del Conocimiento y Sistemas Inteligentes" (KDIS), y se centra en la aplicación de la minería de datos en los sistemas de e-learning.
+
+					Ha sido preseleccionado como Investigación Altamente Citada por Thomson Reuters en Informática (Docampo & Torres-Salinas, 2013)
+	            </p>
+	            <ul class="list-inline">
+	                {# <li>
+	                    <a href="https://www.facebook.com/jorge.molinaalba.9" target="_blank" class="social-icon-sm si-border si-facebook">
+	                        <i class="fa fa-facebook"></i>
+	                        <i class="fa fa-facebook"></i>
+	                    </a>
+	                </li> #}
+	                <li>
+	                    <a href="https://www.linkedin.com/in/cristobal-romero-63142b7/" target="_blank" class="social-icon-sm si-border si-linkedin">
+	                        <i class="fa fa-linkedin"></i>
+	                        <i class="fa fa-linkedin"></i>
+	                    </a>
+	                </li>
+	            </ul><!--social-->
+	        </div><!--team-wrap-->
+	    </div><!--team col-->
+	    <div class="col-md-6 margin20">
+	        <div class="team-wrap">
+	        <br>	
+	        <center>
+	        	<div class="image-cropper">
+	            	<img src="{{asset('assets/img/Alberto_profile.jpg')}}" class="rounded" alt="">
+	            </div>
+	        </center>
+	            <h4>Alberto Cano Rojas</h4><hr>
+	            <center>
+	            	<strong>Profesor Asistente en el Departamento de Ciencias de la Computación de la Virginia Commonwealth University</strong><br>
+	            </center>
+	            <hr>
+	            <p align="justify" style="padding: 10px;">
+	                Alberto Cano es Profesor Asistente en el Departamento de Ciencias de la Computación de la Virginia Commonwealth University, Estados Unidos, donde dirige el Laboratorio de Minería de Datos de Alto Rendimiento. Anteriormente fue investigador en la Universidad de Córdoba, España, como miembro del grupo de investigación de Descubrimiento de Conocimientos y Sistemas Inteligentes. Su investigación se centra en la soft computing, el aprendizaje automático, la minería de datos, la computación de uso general en unidades de procesamiento gráfico (CUGUPG) y la computación paralela.
+	            </p>
+	            <br>
+	            <ul class="list-inline">
+	                {# <li>
+	                    <a href="https://www.facebook.com/jorge.molinaalba.9" target="_blank" class="social-icon-sm si-border si-facebook">
+	                        <i class="fa fa-facebook"></i>
+	                        <i class="fa fa-facebook"></i>
+	                    </a>
+	                </li> #}
+	                <li>
+	                    <a href="https://www.linkedin.com/in/albertocanorojas/" target="_blank" class="social-icon-sm si-border si-linkedin">
+	                        <i class="fa fa-linkedin"></i>
+	                        <i class="fa fa-linkedin"></i>
+	                    </a>
+	                </li>
+	            </ul><!--social-->
+	        </div><!--team-wrap-->
+	    </div><!--team col-->
+	</div>
+	</div>
+
+
+
+</div>
+
+{% endblock %}

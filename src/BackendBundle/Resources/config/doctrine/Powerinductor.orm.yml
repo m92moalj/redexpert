@@ -1,0 +1,231 @@
+BackendBundle\Entity\Powerinductor:
+    type: entity
+    table: PowerInductor
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    fields:
+        type:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: false
+            column: Type
+        series:
+            type: string
+            nullable: true
+            length: 8
+            options:
+                fixed: false
+            column: Series
+        size:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: Size
+        orderCode:
+            type: string
+            nullable: true
+            length: 12
+            options:
+                fixed: false
+            column: Order_Code
+        isInternal:
+            type: string
+            nullable: true
+            length: 5
+            options:
+                fixed: false
+            column: Is_Internal
+        inductance:
+            type: decimal
+            nullable: true
+            precision: 11
+            scale: 7
+            column: Inductance
+        resistanceDcTyp:
+            type: decimal
+            nullable: true
+            precision: 6
+            scale: 5
+            column: Resistance_DC_TYP
+        ratedCurrent:
+            type: decimal
+            nullable: true
+            precision: 5
+            scale: 3
+            column: Rated_Current
+        ratedCurrentTemperature:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: Rated_Current_Temperature
+        saturationCurrent:
+            type: decimal
+            nullable: true
+            precision: 6
+            scale: 4
+            column: Saturation_Current
+        sizeLength:
+            type: decimal
+            nullable: true
+            precision: 5
+            scale: 4
+            column: Size_Length
+        sizeWidth:
+            type: decimal
+            nullable: true
+            precision: 6
+            scale: 5
+            column: Size_Width
+        sizeHeightMax:
+            type: decimal
+            nullable: true
+            precision: 6
+            scale: 5
+            column: Size_Height_Max
+        footprint:
+            type: decimal
+            nullable: true
+            precision: 9
+            scale: 8
+            column: Footprint
+        temperatureOpt:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: Temperature_OPT
+        isAecq:
+            type: string
+            nullable: true
+            length: 5
+            options:
+                fixed: false
+            column: Is_AECQ
+        shieldingType:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+            column: Shielding_Type
+        coreMaterial:
+            type: string
+            nullable: true
+            length: 11
+            options:
+                fixed: false
+            column: Core_Material
+        voltageSec:
+            type: decimal
+            nullable: true
+            precision: 7
+            scale: 6
+            column: Voltage_Sec
+        assemblingTechnology:
+            type: string
+            nullable: true
+            length: 3
+            options:
+                fixed: false
+            column: Assembling_Technology
+        parallelResistance:
+            type: decimal
+            nullable: true
+            precision: 28
+            scale: 12
+            column: Parallel_Resistance
+        parallelCapacitance:
+            type: decimal
+            nullable: true
+            precision: 36
+            scale: 16
+            column: Parallel_Capacitance
+        selfResonanFrequency:
+            type: decimal
+            nullable: true
+            precision: 23
+            scale: 7
+            column: Self_Resonan_Frequency
+        rk:
+            type: decimal
+            nullable: true
+            precision: 31
+            scale: 12
+            column: Rk
+        rv:
+            type: decimal
+            nullable: true
+            precision: 29
+            scale: 13
+            column: Rv
+        rt:
+            type: decimal
+            nullable: true
+            precision: 31
+            scale: 14
+            column: Rt
+        rr:
+            type: decimal
+            nullable: true
+            precision: 31
+            scale: 13
+            column: Rr
+        rs:
+            type: decimal
+            nullable: true
+            precision: 3
+            scale: 2
+            column: Rs
+        warmingFactor:
+            type: decimal
+            nullable: true
+            precision: 7
+            scale: 5
+            column: Warming_Factor
+        warmingExp:
+            type: decimal
+            nullable: true
+            precision: 6
+            scale: 5
+            column: Warming_Exp
+        icrackPower:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+            column: ICRack_Power
+        icrackPoweremi:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+            column: ICRack_PowerEMI
+        icrackEmi:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+            column: ICRack_EMI
+        icrackMouser:
+            type: string
+            nullable: true
+            length: 19
+            options:
+                fixed: false
+            column: ICRack_Mouser
+    lifecycleCallbacks: {  }
