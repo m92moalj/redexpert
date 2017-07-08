@@ -166,7 +166,7 @@ class PhpDumper extends Dumper
             }
         }
         if ($unusedEnvs) {
-            throw new EnvParameterException($unusedEnvs);
+            throw new EnvParameterException($unusedEnvs, null, 'Environment variables "%s" are never used. Please, check your container\'s configuration.');
         }
 
         return $code;
@@ -772,7 +772,7 @@ EOF;
     private function startClass($class, $baseClass, $namespace)
     {
         $bagClass = $this->container->isFrozen() ? 'use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;' : 'use Symfony\Component\DependencyInjection\ParameterBag\\ParameterBag;';
-        $namespaceLine = $namespace ? "namespace $namespace;\n" : '';
+        $namespaceLine = $namespace ? "\nnamespace $namespace;\n" : '';
 
         return <<<EOF
 <?php
@@ -1191,7 +1191,15 @@ EOF;
 
         $conditions = array();
         foreach ($services as $service) {
+            if ($this->container->hasDefinition($service) && !$this->container->getDefinition($service)->isPublic()) {
+                continue;
+            }
+
             $conditions[] = sprintf("\$this->has('%s')", $service);
+        }
+
+        if (!$conditions) {
+            return $code;
         }
 
         // re-indent the wrapped code

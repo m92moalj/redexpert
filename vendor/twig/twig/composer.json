@@ -38,6 +38,9 @@
     "autoload": {
         "psr-0" : {
             "Twig_" : "lib/"
+        },
+        "psr-4" : {
+            "Twig\\" : "src/"
         }
     },
     "autoload-dev": {
@@ -47,7 +50,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.3-dev"
+            "dev-master": "2.4-dev"
         }
     }
 }

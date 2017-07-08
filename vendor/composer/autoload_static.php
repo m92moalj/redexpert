@@ -21,6 +21,7 @@ class ComposerStaticInitcc5d363adbe6048c38a15e6c61be0ef8
     public static $prefixLengthsPsr4 = array (
         'T' => 
         array (
+            'Twig\\' => 5,
             'Tests\\' => 6,
         ),
         'S' => 
@@ -34,7 +35,6 @@ class ComposerStaticInitcc5d363adbe6048c38a15e6c61be0ef8
             'Symfony\\Bundle\\MonologBundle\\' => 29,
             'Symfony\\Bundle\\' => 15,
             'Symfony\\Bridge\\Twig\\' => 20,
-            'Symfony\\Bridge\\Swiftmailer\\' => 27,
             'Symfony\\Bridge\\ProxyManager\\' => 28,
             'Symfony\\Bridge\\PhpUnit\\' => 23,
             'Symfony\\Bridge\\Monolog\\' => 23,
@@ -72,6 +72,10 @@ class ComposerStaticInitcc5d363adbe6048c38a15e6c61be0ef8
     );
 
     public static $prefixDirsPsr4 = array (
+        'Twig\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
         'Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',
@@ -111,10 +115,6 @@ class ComposerStaticInitcc5d363adbe6048c38a15e6c61be0ef8
         'Symfony\\Bridge\\Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/symfony/src/Symfony/Bridge/Twig',
-        ),
-        'Symfony\\Bridge\\Swiftmailer\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/symfony/src/Symfony/Bridge/Swiftmailer',
         ),
         'Symfony\\Bridge\\ProxyManager\\' => 
         array (
